@@ -634,6 +634,10 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 									 kCGGradientDrawsAfterEndLocation);
 		CGGradientRelease(gradient);
 	}
+    else {
+        CGContextSetGrayFillColor(context, 0.0f, 0.6f);
+        CGContextAddRect(context, self.bounds);
+    }
 
 	// Set background rect color
 	if (self.color) {
