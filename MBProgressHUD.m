@@ -91,7 +91,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 @synthesize minSize;
 @synthesize square;
 @synthesize margin;
-@synthesize dimBackground;
+@synthesize dimBackgroundWithRadialGradient;
+@synthesize dimBackgroundWithStandardDim;
 @synthesize graceTime;
 @synthesize minShowTime;
 @synthesize graceTimer;
@@ -179,7 +180,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		self.activityIndicatorColor = [UIColor whiteColor];
 		self.xOffset = 0.0f;
 		self.yOffset = 0.0f;
-		self.dimBackground = NO;
+		self.dimBackgroundWithRadialGradient = NO;
+        self.dimBackgroundWithStandardDim = NO;
 		self.margin = 20.0f;
 		self.cornerRadius = 10.0f;
 		self.graceTime = 0.0f;
@@ -616,7 +618,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	UIGraphicsPushContext(context);
 
-	if (self.dimBackground) {
+	if (self.dimBackgroundWithRadialGradient) {
 		//Gradient colours
 		size_t gradLocationsNum = 2;
 		CGFloat gradLocations[2] = {0.0f, 1.0f};
@@ -634,7 +636,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 									 kCGGradientDrawsAfterEndLocation);
 		CGGradientRelease(gradient);
 	}
-    else {
+    else if (self.dimBackgroundWithStandardDim) {
         CGContextSetGrayFillColor(context, 0.0f, 0.6f);
         CGContextBeginPath(context);
         CGContextAddRect(context, self.bounds);

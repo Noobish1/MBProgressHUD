@@ -359,7 +359,12 @@ typedef void (^MBProgressHUDCompletionBlock)();
 /** 
  * Cover the HUD background view with a radial gradient. 
  */
-@property (assign) BOOL dimBackground;
+@property (assign) BOOL dimBackgroundWithRadialGradient;
+
+/**
+ * Cover the HUD background view with a standard dim.
+ */
+@property (assign) BOOL dimBackgroundWithStandardDim;
 
 /*
  * Grace period is the time (in seconds) that the invoked method may be run without 
