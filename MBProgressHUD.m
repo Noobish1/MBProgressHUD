@@ -636,7 +636,10 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	}
     else {
         CGContextSetGrayFillColor(context, 0.0f, 0.6f);
+        CGContextBeginPath(context);
         CGContextAddRect(context, self.bounds);
+        CGContextClosePath(context);
+        CGContextFillPath(context);
     }
 
 	// Set background rect color
